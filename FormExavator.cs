@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace KatyshevaExcavator
 {
-    public partial class FormEx : Form
+    public partial class FormExavator : Form
     {
         private excavator ex;
-        public FormEx()
+        public FormExavator()
         {
             InitializeComponent();
         }

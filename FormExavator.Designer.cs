@@ -1,7 +1,7 @@
 ﻿
 namespace KatyshevaExcavator
 {
-    partial class FormEx
+    partial class FormExavator
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace KatyshevaExcavator
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEx));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormExavator));
             this.pictureBoxEx = new System.Windows.Forms.PictureBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
@@ -107,7 +107,7 @@ namespace KatyshevaExcavator
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // FormEx
+            // FormExavator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,7 +118,7 @@ namespace KatyshevaExcavator
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxEx);
-            this.Name = "FormEx";
+            this.Name = "FormExavator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Экскаватор";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEx)).EndInit();
