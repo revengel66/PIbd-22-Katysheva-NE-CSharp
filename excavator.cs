@@ -7,7 +7,6 @@ namespace KatyshevaExcavator
 {
     class excavator
     {
-        //commit
         private float _startPosX; /// Левая координата отрисовки 
         private float _startPosY; /// Верхняя кооридната отрисовки 
         private int _pictureWidth; /// Ширина окна отрисовки
