@@ -12,7 +12,7 @@ namespace KatyshevaExcavator
 {
     public partial class FormExavator : Form
     {
-        private excavator ex;
+        private Excavator ex;
         public FormExavator()
         {
             InitializeComponent();
@@ -28,7 +28,7 @@ namespace KatyshevaExcavator
         private void buttonCreate_Click(object sender, EventArgs e) /// Обработка нажатия кнопки "Создать
         {
             Random rand = new Random();
-            ex = new excavator();
+            ex = new Excavator();
             ex.Initialization(rand.Next(100, 300), rand.Next(1000, 2000), Color.Yellow, Color.Gray, true, true, true, true, true); 
             ex.SetPosition(rand.Next(10, 100), rand.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
             Draw();

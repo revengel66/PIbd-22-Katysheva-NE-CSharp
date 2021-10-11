@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace KatyshevaExcavator
 {
-    class excavator
+    class Excavator
     {
         private float _startPosX; /// Левая координата отрисовки 
         private float _startPosY; /// Верхняя кооридната отрисовки 
