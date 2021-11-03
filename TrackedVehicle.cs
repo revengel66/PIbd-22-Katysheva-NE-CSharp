@@ -77,8 +77,7 @@ namespace KatyshevaExcavator
             g.FillRectangle(brBlack, _startPosX + 25, _startPosY + 200, 160, 50);
             g.FillEllipse(brGray, _startPosX + 5, _startPosY + 205, 40, 40);
             g.FillRectangle(brGray, _startPosX + 50, _startPosY + 215, 110, 20);
-            g.FillEllipse(brGray, _startPosX + 165, _startPosY + 205, 40, 40);
-
+            g.FillEllipse(brGray, _startPosX + 165, _startPosY + 205, 40, 40);   
         }
     }
 }
