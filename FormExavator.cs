@@ -17,12 +17,16 @@ namespace KatyshevaExcavator
         {
             InitializeComponent();
         }
-
-        private void Draw() /// Метод отрисовки экскаватора
+    public void SetCar(ITransport ex) /// Передача машины на форму
+    {
+        this.ex = ex;
+        Draw();
+    }
+    private void Draw() /// Метод отрисовки экскаватора
         {
             Bitmap bmp = new Bitmap(pictureBoxEx.Width, pictureBoxEx.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            ex.DrawTransport(gr);
+            ex?.DrawTransport(gr);
             pictureBoxEx.Image = bmp;
         }
 
