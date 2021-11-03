@@ -10,8 +10,8 @@ namespace KatyshevaExcavator
         private readonly T[] _places; /// Массив объектов, которые храним
         private readonly int pictureWidth;/// Ширина окна отрисовки
         private readonly int pictureHeight;/// Высота окна отрисовки
-        private readonly int _placeSizeWidth = 355;/// Размер парковочного места (ширина)
-        private readonly int _placeSizeHeight = 250; /// Размер парковочного места (высота)
+        private readonly int _placeSizeWidth = 370;/// Размер парковочного места (ширина)
+        private readonly int _placeSizeHeight = 260; /// Размер парковочного места (высота)
         public Parking(int picWidth, int picHeight) /// Конструктор
         {
             int width = picWidth / _placeSizeWidth;
@@ -50,16 +50,16 @@ namespace KatyshevaExcavator
         {
             DrawMarking(g);
             int x = 5, y = 5;
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Length; ++i)
             {
                 if (i % (pictureWidth / _placeSizeWidth) == 0 && i != 0)
                 {
-                    y += 250;
+                    y += 260;
                     x = 5;
                 }
                 _places[i]?.SetPosition(x, y, 1, 1);
                 _places[i]?.DrawTransport(g);
-                x += 355;
+                x += 370;
             }
         }
         private void DrawMarking(Graphics g) /// Метод отрисовки разметки парковочных мест

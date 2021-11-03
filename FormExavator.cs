@@ -17,9 +17,11 @@ namespace KatyshevaExcavator
         {
             InitializeComponent();
         }
-    public void SetCar(ITransport ex) /// Передача машины на форму
+    public void SetCar(ITransport ex) /// Передача гученичной машины на форму
     {
+        Random rnd = new Random();
         this.ex = ex;
+        this.ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
         Draw();
     }
     private void Draw() /// Метод отрисовки экскаватора
