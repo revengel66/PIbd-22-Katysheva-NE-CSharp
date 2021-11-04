@@ -37,13 +37,13 @@ namespace KatyshevaExcavator
         /// Логика действия: с парковки забираем машину
          public static T operator -(Parking<T> p, int index)
          {
-            if (index < p._places.Count || index >= 0)
+            if (index < 0 || index >= p._places.Count)
             {
-                var car = p._places[index];
-                p._places.RemoveAt(index);
-                return car;
+                return null;
             }
-            return null;
+            var car = p._places[index];
+            p._places.RemoveAt(index);
+            return car;
         }
         
         public void Draw(Graphics g) /// Метод отрисовки парковки
