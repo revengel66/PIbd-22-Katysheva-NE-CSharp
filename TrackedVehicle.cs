@@ -7,7 +7,7 @@ namespace KatyshevaExcavator
 {
     public class TrackedVehicle : Vehicle
     {
-        protected readonly int trackedVehicleWidth = 355; /// Ширина отрисовки гусеничной машины
+        protected readonly int trackedVehicleWidth = 210; /// Ширина отрисовки гусеничной машины
         protected readonly int trackedVehicleHeight = 250;/// Высота отрисовки гусеничной машины
         public TrackedVehicle(int maxSpeed, float weight, Color mainColor)//Конструктор
         {
@@ -77,7 +77,8 @@ namespace KatyshevaExcavator
             g.FillRectangle(brBlack, _startPosX + 25, _startPosY + 200, 160, 50);
             g.FillEllipse(brGray, _startPosX + 5, _startPosY + 205, 40, 40);
             g.FillRectangle(brGray, _startPosX + 50, _startPosY + 215, 110, 20);
-            g.FillEllipse(brGray, _startPosX + 165, _startPosY + 205, 40, 40);   
+            g.FillEllipse(brGray, _startPosX + 165, _startPosY + 205, 40, 40);
+            g.DrawRectangle(pen, _startPosX, _startPosY, 210, 250);
         }
     }
 }
