@@ -7,7 +7,7 @@ namespace KatyshevaExcavator
 {
     public class TrackedVehicle : Vehicle
     {
-        protected readonly int trackedVehicleWidth = 355; /// Ширина отрисовки гусеничной машины
+        protected readonly int trackedVehicleWidth = 210; /// Ширина отрисовки гусеничной машины
         protected readonly int trackedVehicleHeight = 250;/// Высота отрисовки гусеничной машины
         public TrackedVehicle(int maxSpeed, float weight, Color mainColor)//Конструктор
         {
