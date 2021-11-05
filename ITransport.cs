@@ -9,8 +9,6 @@ namespace KatyshevaExcavator
         void SetPosition(int x, int y, int width, int height);
         void MoveTransport(Direction direction);
         void DrawTransport(Graphics g);
-        //прописать метод тут и его реализацию в абстрактном классе
-        void Meth(int a);
     }
 }
 
