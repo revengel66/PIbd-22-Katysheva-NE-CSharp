@@ -73,7 +73,7 @@ namespace KatyshevaExcavator
                 if (car != null)
                 {
                     FormExavator form = new FormExavator();
-                    form.SetCar(car);
+                    form.SetVehicle(car);
                     form.ShowDialog();
                 }
                 Draw();
