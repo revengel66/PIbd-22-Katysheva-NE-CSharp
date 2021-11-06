@@ -42,6 +42,5 @@ namespace KatyshevaExcavator
                 return null;
             }
         }
-
     }
 }

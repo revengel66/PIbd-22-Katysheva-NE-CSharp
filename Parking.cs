@@ -62,9 +62,6 @@ namespace KatyshevaExcavator
                 x += 370;
             }
         }
-        
-       
-
         private void DrawMarking(Graphics g) /// Метод отрисовки разметки парковочных мест
         {
             Pen pen = new Pen(Color.Black, 3);

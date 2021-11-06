@@ -17,7 +17,7 @@ namespace KatyshevaExcavator
         {
             InitializeComponent();
         }
-    public void SetCar(ITransport ex) /// Передача гученичной машины на форму
+    public void SetVehicle(ITransport ex) /// Передача гученичной машины на форму
     {
         Random rnd = new Random();
         this.ex = ex;

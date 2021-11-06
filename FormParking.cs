@@ -13,7 +13,6 @@ namespace KatyshevaExcavator
     public partial class FormParking : Form
     {
         private readonly ParkingCollection parkingCollection; /// Объект от класса-коллекции парковок
-
         public FormParking()
         {
             InitializeComponent();
@@ -117,7 +116,7 @@ namespace KatyshevaExcavator
                 if (car != null)
                 {
                     FormExavator form = new FormExavator();
-                    form.SetCar(car);
+                    form.SetVehicle(car);
                     form.ShowDialog();
                 }
                 Draw();
