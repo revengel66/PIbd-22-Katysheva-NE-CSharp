@@ -17,14 +17,14 @@ namespace KatyshevaExcavator
         {
             InitializeComponent();
         }
-    public void SetVehicle(ITransport ex) /// Передача гученичной машины на форму
-    {
-        Random rnd = new Random();
-        this.ex = ex;
-        this.ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
-        Draw();
-    }
-    private void Draw() /// Метод отрисовки экскаватора
+        public void SetVehicle(ITransport ex) /// Передача гученичной машины на форму
+        {
+            Random rnd = new Random();
+            this.ex = ex;
+            this.ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
+            Draw();
+        }
+        private void Draw() /// Метод отрисовки экскаватора
         {
             Bitmap bmp = new Bitmap(pictureBoxEx.Width, pictureBoxEx.Height);
             Graphics gr = Graphics.FromImage(bmp);
