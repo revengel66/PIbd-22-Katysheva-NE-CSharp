@@ -12,7 +12,7 @@ namespace KatyshevaExcavator
 {
     public partial class FormExavator : Form
     {
-        private Excavator ex;
+        private ITransport ex;
         public FormExavator()
         {
             InitializeComponent();
@@ -25,12 +25,21 @@ namespace KatyshevaExcavator
             ex.DrawTransport(gr);
             pictureBoxEx.Image = bmp;
         }
-        private void buttonCreate_Click(object sender, EventArgs e) /// Обработка нажатия кнопки "Создать
+
+        /// Обработка нажатия кнопки "Создать гусеничную машинаe"
+        private void buttonCreateTrackedVehicle_Click(object sender, EventArgs e)
         {
-            Random rand = new Random();
-            ex = new Excavator();
-            ex.Initialization(rand.Next(100, 300), rand.Next(1000, 2000), Color.Yellow, Color.Gray, true, true, true, true, true); 
-            ex.SetPosition(rand.Next(10, 100), rand.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
+            Random rnd = new Random();
+            ex = new TrackedVehicle(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Yellow);
+            ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
+            Draw();
+        }
+        /// Обработка нажатия кнопки "Создать экскаватор"
+        private void buttonCreateExcavator_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            ex = new Excavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Yellow, Color.Gray, true, true, true, true);
+            ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width,pictureBoxEx.Height);
             Draw();
         }
         private void buttonMove_Click(object sender, EventArgs e) /// Обработка нажатия кнопок управления

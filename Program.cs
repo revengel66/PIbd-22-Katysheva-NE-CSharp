@@ -6,7 +6,6 @@ using System.Windows.Forms;
 
 namespace KatyshevaExcavator
 {
-//commit
     static class Program
     {
         [STAThread]
