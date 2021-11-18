@@ -25,18 +25,7 @@ namespace KatyshevaExcavator
             Brush mainColor = new SolidBrush(MainColor);
             Brush dopColor = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Black);
-            if (Bucket) //Ковш
-            {
-                PointF[] bucket = {
-                    new PointF(_startPosX + 350, _startPosY + 170),
-                    new PointF(_startPosX +330,  _startPosY + 250),
-                    new PointF(_startPosX +250,  _startPosY + 230),
-
-                    new PointF(_startPosX +350,  _startPosY + 170)
-                };
-                g.FillPolygon(dopColor, bucket);
-                g.DrawPolygon(pen, bucket);
-            }
+            
             if (Handle)
             { //Рукоять
                 PointF[] handle = {
@@ -50,27 +39,47 @@ namespace KatyshevaExcavator
                 };
                 g.FillPolygon(mainColor, handle);
                 g.DrawPolygon(pen, handle);
-            }
-            if (Arrow) //Стрела
-            {
-                PointF[] arrow = {
+
+                if (Arrow) //Стрела
+                {
+                    PointF[] arrow = {
                     new PointF(_startPosX + 340, _startPosY + 20),
                     new PointF(_startPosX +350,  _startPosY + 170),
                     new PointF(_startPosX +340,  _startPosY + 170),
                     new PointF(_startPosX +320,  _startPosY + 50),
                     new PointF(_startPosX +340,  _startPosY + 20)
                 };
-                g.FillPolygon(mainColor, arrow);
-                g.DrawPolygon(pen, arrow);
-                g.FillEllipse(dopColor, _startPosX + 335, _startPosY + 160, 20, 20);
-                g.DrawEllipse(pen, _startPosX + 335, _startPosY + 160, 20, 20);
+                    g.FillPolygon(mainColor, arrow);
+                    g.DrawPolygon(pen, arrow);
+                    g.FillEllipse(dopColor, _startPosX + 335, _startPosY + 160, 20, 20);
+                    g.DrawEllipse(pen, _startPosX + 335, _startPosY + 160, 20, 20);
+                    if (Bucket) //Ковш
+                    {
+                        PointF[] bucket = {
+                        new PointF(_startPosX + 350, _startPosY + 170),
+                        new PointF(_startPosX +330,  _startPosY + 250),
+                        new PointF(_startPosX +250,  _startPosY + 230),
+                        new PointF(_startPosX +350,  _startPosY + 170)
+                    };
+                        g.FillPolygon(dopColor, bucket);
+                        g.DrawPolygon(pen, bucket);
+                    }
+
+
+
+                }
             }
+           
             if (Сounterweight)
             {
                 g.FillRectangle(dopColor, _startPosX + 10, _startPosY + 130, 30, 20);
                 g.DrawRectangle(pen, _startPosX + 10, _startPosY + 130, 30, 20); //Противовес
             }
             base.DrawTransport(g);
+        }
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
         }
     }
 }
