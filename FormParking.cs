@@ -153,7 +153,6 @@ namespace KatyshevaExcavator
                 }
             }
         }
-
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogTransport.ShowDialog() == DialogResult.OK)
@@ -171,7 +170,6 @@ namespace KatyshevaExcavator
             }
 
         }
-
         private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialogTransport.ShowDialog() == DialogResult.OK)
@@ -189,7 +187,6 @@ namespace KatyshevaExcavator
                     MessageBoxIcon.Error);
                 }
             }
-
         }
     }
 }
