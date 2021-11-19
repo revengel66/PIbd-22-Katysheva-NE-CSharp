@@ -155,6 +155,5 @@ namespace KatyshevaExcavator
             eventAddTransport?.Invoke(car);
             Close();
         }
-
     }
 }
