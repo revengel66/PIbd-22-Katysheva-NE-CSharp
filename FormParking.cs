@@ -153,7 +153,6 @@ namespace KatyshevaExcavator
                 }
             }
         }
-
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogTransport.ShowDialog() == DialogResult.OK)
