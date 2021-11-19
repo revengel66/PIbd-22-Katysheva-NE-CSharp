@@ -1,0 +1,4 @@
+﻿Parking:парковка 1
+Excavator:100;100;HotPink;MediumPurple;True;True;True;True
+Excavator:100;100;Navy;DodgerBlue;True;True;True;True
+Excavator:100;100;Yellow;Black;False;False;False;False
