@@ -1,0 +1,6 @@
+﻿ParkingCollection
+Parking:парковка 1
+Excavator:100;100;Yellow;Black;False;False;False;False
+Parking:парковка 2
+Excavator:100;100;Crimson;Black;False;False;False;False
+Excavator:100;100;ForestGreen;MediumPurple;True;True;True;True

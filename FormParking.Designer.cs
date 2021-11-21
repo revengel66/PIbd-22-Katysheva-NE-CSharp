@@ -39,15 +39,22 @@ namespace KatyshevaExcavator
             this.buttonAddPark = new System.Windows.Forms.Button();
             this.buttonDelPark = new System.Windows.Forms.Button();
             this.buttonAddTransport = new System.Windows.Forms.Button();
+            this.menuStripTransport = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialogTransport = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialogTransport = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBoxPark.SuspendLayout();
+            this.menuStripTransport.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxParking
             // 
-            this.pictureBoxParking.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBoxParking.Location = new System.Drawing.Point(-1, 31);
             this.pictureBoxParking.Name = "pictureBoxParking";
-            this.pictureBoxParking.Size = new System.Drawing.Size(973, 561);
+            this.pictureBoxParking.Size = new System.Drawing.Size(973, 530);
             this.pictureBoxParking.TabIndex = 0;
             this.pictureBoxParking.TabStop = false;
             // 
@@ -93,7 +100,7 @@ namespace KatyshevaExcavator
             // 
             this.listBoxParkings.FormattingEnabled = true;
             this.listBoxParkings.ItemHeight = 20;
-            this.listBoxParkings.Location = new System.Drawing.Point(996, 91);
+            this.listBoxParkings.Location = new System.Drawing.Point(996, 103);
             this.listBoxParkings.Name = "listBoxParkings";
             this.listBoxParkings.Size = new System.Drawing.Size(168, 104);
             this.listBoxParkings.TabIndex = 4;
@@ -101,14 +108,14 @@ namespace KatyshevaExcavator
             // 
             // textBoxNewLevelName
             // 
-            this.textBoxNewLevelName.Location = new System.Drawing.Point(996, 21);
+            this.textBoxNewLevelName.Location = new System.Drawing.Point(996, 33);
             this.textBoxNewLevelName.Name = "textBoxNewLevelName";
             this.textBoxNewLevelName.Size = new System.Drawing.Size(168, 27);
             this.textBoxNewLevelName.TabIndex = 5;
             // 
             // buttonAddPark
             // 
-            this.buttonAddPark.Location = new System.Drawing.Point(996, 54);
+            this.buttonAddPark.Location = new System.Drawing.Point(996, 66);
             this.buttonAddPark.Name = "buttonAddPark";
             this.buttonAddPark.Size = new System.Drawing.Size(168, 29);
             this.buttonAddPark.TabIndex = 6;
@@ -118,7 +125,7 @@ namespace KatyshevaExcavator
             // 
             // buttonDelPark
             // 
-            this.buttonDelPark.Location = new System.Drawing.Point(996, 201);
+            this.buttonDelPark.Location = new System.Drawing.Point(996, 213);
             this.buttonDelPark.Name = "buttonDelPark";
             this.buttonDelPark.Size = new System.Drawing.Size(168, 33);
             this.buttonDelPark.TabIndex = 7;
@@ -136,6 +143,49 @@ namespace KatyshevaExcavator
             this.buttonAddTransport.UseVisualStyleBackColor = true;
             this.buttonAddTransport.Click += new System.EventHandler(this.buttonAddTransport_Click);
             // 
+            // menuStripTransport
+            // 
+            this.menuStripTransport.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStripTransport.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem});
+            this.menuStripTransport.Location = new System.Drawing.Point(0, 0);
+            this.menuStripTransport.Name = "menuStripTransport";
+            this.menuStripTransport.Size = new System.Drawing.Size(1185, 28);
+            this.menuStripTransport.TabIndex = 9;
+            this.menuStripTransport.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьToolStripMenuItem,
+            this.загрузитьToolStripMenuItem});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
+            this.загрузитьToolStripMenuItem.Text = "Загрузить";
+            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // saveFileDialogTransport
+            // 
+            this.saveFileDialogTransport.Filter = "txt file | *.txt";
+            // 
+            // openFileDialogTransport
+            // 
+            this.openFileDialogTransport.FileName = "openFileDialogTransport";
+            this.openFileDialogTransport.Filter = "txt file | *.txt";
+            // 
             // FormParking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -148,11 +198,15 @@ namespace KatyshevaExcavator
             this.Controls.Add(this.listBoxParkings);
             this.Controls.Add(this.groupBoxPark);
             this.Controls.Add(this.pictureBoxParking);
+            this.Controls.Add(this.menuStripTransport);
+            this.MainMenuStrip = this.menuStripTransport;
             this.Name = "FormParking";
             this.Text = "Парковка";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBoxPark.ResumeLayout(false);
             this.groupBoxPark.PerformLayout();
+            this.menuStripTransport.ResumeLayout(false);
+            this.menuStripTransport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +224,11 @@ namespace KatyshevaExcavator
         private System.Windows.Forms.Button buttonAddPark;
         private System.Windows.Forms.Button buttonDelPark;
         private System.Windows.Forms.Button buttonAddTransport;
+        private System.Windows.Forms.MenuStrip menuStripTransport;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogTransport;
+        private System.Windows.Forms.OpenFileDialog openFileDialogTransport;
     }
 }

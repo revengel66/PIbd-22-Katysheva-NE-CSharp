@@ -19,6 +19,24 @@ namespace KatyshevaExcavator
             Arrow = arrow;
             Сounterweight = counterweight;
         }
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        public Excavator(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Bucket = Convert.ToBoolean(strs[4]);
+                Handle = Convert.ToBoolean(strs[5]);
+                Arrow = Convert.ToBoolean(strs[6]);
+                Сounterweight = Convert.ToBoolean(strs[7]);
+            }
+        }
         public override void DrawTransport(Graphics g)
         {
             Brush mainColor = new SolidBrush(MainColor);
@@ -65,7 +83,6 @@ namespace KatyshevaExcavator
                     }
                 }
             }
-           
             if (Сounterweight)
             {
                 g.FillRectangle(dopColor, _startPosX + 10, _startPosY + 130, 30, 20);
@@ -76,6 +93,10 @@ namespace KatyshevaExcavator
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()}{separator}{DopColor.Name}{separator}{Bucket}{separator}{Handle}{separator}{Arrow}{ separator}{ Сounterweight}";
         }
     }
 }

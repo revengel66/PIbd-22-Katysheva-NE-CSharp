@@ -8,6 +8,8 @@ namespace KatyshevaExcavator
     {
         protected readonly int trackedVehicleWidth = 210; /// Ширина отрисовки гусеничной машины
         protected readonly int trackedVehicleHeight = 250;/// Высота отрисовки гусеничной машины
+        protected readonly char separator = ';';/// Разделитель для записи информации по объекту в файл
+
         public TrackedVehicle(int maxSpeed, float weight, Color mainColor)//Конструктор
         {
             MaxSpeed = maxSpeed;
@@ -22,6 +24,19 @@ namespace KatyshevaExcavator
             MainColor = mainColor;
             this.trackedVehicleWidth = trackedVehicleWidth;
             this.trackedVehicleHeight = trackedVehicleHeight;
+        }
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        public TrackedVehicle(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
         public override void MoveTransport(Direction direction) /// Изменение направления пермещения
         {
@@ -78,6 +93,10 @@ namespace KatyshevaExcavator
             g.FillRectangle(brGray, _startPosX + 50, _startPosY + 215, 110, 20);
             g.FillEllipse(brGray, _startPosX + 165, _startPosY + 205, 40, 40);
 
+        }
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
     }
 }
