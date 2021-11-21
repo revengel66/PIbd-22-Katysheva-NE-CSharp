@@ -127,5 +127,31 @@ namespace KatyshevaExcavator
         {
             Draw();
         }
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить машину"
+        /// </summary>
+        private void buttonAddTransport_Click(object sender, EventArgs e)
+        {
+            var formCarConfig = new FormTrackVehConfig();
+            formCarConfig.AddEvent(AddTransport);
+            formCarConfig.Show();
+        }
+        /// <summary>
+        /// Метод добавления машины
+        /// </summary>
+        private void AddTransport(Vehicle car)
+        {
+            if (car != null && listBoxParkings.SelectedIndex > -1)
+            {
+                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + car != -11)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Парковка переполнена");
+                }
+            }
+        }
     }
 }

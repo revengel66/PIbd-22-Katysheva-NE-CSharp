@@ -31,7 +31,6 @@ namespace KatyshevaExcavator
             ex?.DrawTransport(gr);
             pictureBoxEx.Image = bmp;
         }
-
         /// Обработка нажатия кнопки "Создать гусеничную машинаe"
         private void buttonCreateTrackedVehicle_Click(object sender, EventArgs e)
         {
