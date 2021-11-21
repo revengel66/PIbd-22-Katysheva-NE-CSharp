@@ -11,7 +11,6 @@ namespace KatyshevaExcavator
         public bool Handle { private set; get; } /// Признак наличия рукояти
         public bool Arrow { private set; get; } /// Признак наличия стрелы  
         public bool Сounterweight { private set; get; }/// Признак наличия противовеса
-
         public Excavator(int maxSpeed, float weight, Color mainColor, Color dopColor, bool bucket, bool handle, bool arrow, bool counterweight) : base(maxSpeed, weight, mainColor, 355, 250)
         {
             DopColor = dopColor;
@@ -64,9 +63,6 @@ namespace KatyshevaExcavator
                         g.FillPolygon(dopColor, bucket);
                         g.DrawPolygon(pen, bucket);
                     }
-
-
-
                 }
             }
            

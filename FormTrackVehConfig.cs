@@ -36,7 +36,6 @@ namespace KatyshevaExcavator
                 eventAddTransport += ev;
             }
         }
-
         public FormTrackVehConfig()
         {
             InitializeComponent();
@@ -140,7 +139,6 @@ namespace KatyshevaExcavator
                 DrawCar();
             }
         }
-
         private void labelDopColor_DragDrop(object sender, DragEventArgs e)
         {
             if (car != null && car is Excavator)
@@ -149,7 +147,6 @@ namespace KatyshevaExcavator
                 DrawCar();
             }
         }
-
         private void buttonOk_Click(object sender, EventArgs e)
         {
             eventAddTransport?.Invoke(car);
