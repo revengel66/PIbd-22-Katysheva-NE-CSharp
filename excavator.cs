@@ -38,7 +38,6 @@ namespace KatyshevaExcavator
                 Сounterweight = Convert.ToBoolean(strs[7]);
             }
         }
-
         public override void DrawTransport(Graphics g)
         {
             Brush mainColor = new SolidBrush(MainColor);
@@ -85,7 +84,6 @@ namespace KatyshevaExcavator
                     }
                 }
             }
-           
             if (Сounterweight)
             {
                 g.FillRectangle(dopColor, _startPosX + 10, _startPosY + 130, 30, 20);

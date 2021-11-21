@@ -45,7 +45,6 @@ namespace KatyshevaExcavator
             p._places.RemoveAt(index);
             return car;
         }
-        
         public void Draw(Graphics g) /// Метод отрисовки парковки
         {
             DrawMarking(g);

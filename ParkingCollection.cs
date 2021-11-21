@@ -14,7 +14,6 @@ namespace KatyshevaExcavator
         private readonly int pictureWidth; /// Ширина окна отрисовки
         private readonly int pictureHeight;/// Высота окна отрисовки
         private readonly char separator = ':';/// Разделитель для записи информации в файл
-
         public ParkingCollection(int pictureWidth, int pictureHeight)///Конструктор
         {
             parkingStages = new Dictionary<string, Parking<Vehicle>>();
@@ -55,33 +54,35 @@ namespace KatyshevaExcavator
             }
             using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
-                StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);
-                sw.Write($"ParkingCollection{Environment.NewLine}", fs);
-                foreach (var level in parkingStages)
+                using(StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                 {
-                    //Начинаем парковку
-                    sw.Write($"Parking{separator}{level.Key}{Environment.NewLine}", fs);
-                    ITransport car = null;
-                    for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
+                    sw.Write($"ParkingCollection{Environment.NewLine}", fs);
+                    foreach (var level in parkingStages)
                     {
-                        if (car != null)
+                        //Начинаем парковку
+                        sw.Write($"Parking{separator}{level.Key}{Environment.NewLine}", fs);
+                        ITransport car = null;
+                        for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
                         {
-                            //если место не пустое
-                            //Записываем тип машины
-                            if (car.GetType().Name == "TrackedVehicle")
+                            if (car != null)
                             {
-                                sw.Write($"TrackedVehicle{separator}", fs);
+                                //если место не пустое
+                                //Записываем тип машины
+                                if (car.GetType().Name == "TrackedVehicle")
+                                {
+                                    sw.Write($"TrackedVehicle{separator}", fs);
+                                }
+                                if (car.GetType().Name == "Excavator")
+                                {
+                                    sw.Write($"Excavator{separator}", fs);
+                                }
+                                //Записываемые параметры
+                                sw.Write(car + Environment.NewLine, fs);
                             }
-                            if (car.GetType().Name == "Excavator")
-                            {
-                                sw.Write($"Excavator{separator}", fs);
-                            }
-                            //Записываемые параметры
-                            sw.Write(car + Environment.NewLine, fs);
                         }
                     }
+                    sw.Close();
                 }
-                sw.Close();
             }
             return true;
         }
@@ -94,54 +95,52 @@ namespace KatyshevaExcavator
             {
                 return false;
             }
-            StreamReader sr = new StreamReader(filename, Encoding.UTF8);
-
-            string str = sr.ReadLine();
-            if (str.Contains("ParkingCollection"))
+            using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
             {
-                //очищаем записи
-                parkingStages.Clear();
-            }
-            else
-            {
-                //если нет такой записи, то это не те данные
-                return false;
-            }
-
-            Vehicle car = null;
-            string key = string.Empty;
-
-            while ((str = sr.ReadLine()) != null)
-            {
-                //идем по считанным записям
-                if (str.Contains("Parking"))
+                string str = sr.ReadLine();
+                if (str.Contains("ParkingCollection"))
                 {
-                    //начинаем новую парковку
-                    key = str.Split(separator)[1];
-                    parkingStages.Add(key, new Parking<Vehicle>(pictureWidth, pictureHeight));
-                    continue;
+                    //очищаем записи
+                    parkingStages.Clear();
                 }
-                if (string.IsNullOrEmpty(str))
+                else
                 {
-                    continue;
-                }
-                if (str.Split(separator)[0] == "TrackedVehicle")
-                {
-                    car = new TrackedVehicle(str.Split(separator)[1]);
-                }
-                else if (str.Split(separator)[0] == "Excavator")
-                {
-                    car = new Excavator(str.Split(separator)[1]);
-                }
-                var result = parkingStages[key] + car;
-                if (result == -1)
-                {
+                    //если нет такой записи, то это не те данные
                     return false;
                 }
-            }
-            return true;
-        }
-    
+                Vehicle car = null;
+                string key = string.Empty;
 
-}
+                while ((str = sr.ReadLine()) != null)
+                {
+                    //идем по считанным записям
+                    if (str.Contains("Parking"))
+                    {
+                        //начинаем новую парковку
+                        key = str.Split(separator)[1];
+                        parkingStages.Add(key, new Parking<Vehicle>(pictureWidth, pictureHeight));
+                        continue;
+                    }
+                    if (string.IsNullOrEmpty(str))
+                    {
+                        continue;
+                    }
+                    if (str.Split(separator)[0] == "TrackedVehicle")
+                    {
+                        car = new TrackedVehicle(str.Split(separator)[1]);
+                    }
+                    else if (str.Split(separator)[0] == "Excavator")
+                    {
+                        car = new Excavator(str.Split(separator)[1]);
+                    }
+                    var result = parkingStages[key] + car;
+                    if (result == -1)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    }
 }

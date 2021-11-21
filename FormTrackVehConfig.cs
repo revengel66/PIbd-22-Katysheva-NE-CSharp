@@ -16,12 +16,10 @@ namespace KatyshevaExcavator
         /// Переменная-выбранная машина
         /// </summary>
         Vehicle car = null;
-
         /// <summary>
         /// Событие
         /// </summary>
         private event Action<Vehicle> eventAddTransport;
-
         /// <summary>
         /// Добавление события
         /// </summary>
@@ -36,7 +34,6 @@ namespace KatyshevaExcavator
                 eventAddTransport += ev;
             }
         }
-
         public FormTrackVehConfig()
         {
             InitializeComponent();
