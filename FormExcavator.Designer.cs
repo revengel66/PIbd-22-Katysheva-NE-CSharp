@@ -36,6 +36,7 @@ namespace KatyshevaExcavator
             // 
             this.pictureBoxEx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBoxEx.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxEx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxEx.Name = "pictureBoxEx";
             this.pictureBoxEx.Size = new System.Drawing.Size(882, 453);
             this.pictureBoxEx.TabIndex = 0;
@@ -44,9 +45,10 @@ namespace KatyshevaExcavator
             // 
             // buttonCreateExcavator
             // 
-            this.buttonCreateExcavator.Location = new System.Drawing.Point(256, 12);
+            this.buttonCreateExcavator.Location = new System.Drawing.Point(256, 10);
+            this.buttonCreateExcavator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCreateExcavator.Name = "buttonCreateExcavator";
-            this.buttonCreateExcavator.Size = new System.Drawing.Size(170, 42);
+            this.buttonCreateExcavator.Size = new System.Drawing.Size(170, 34);
             this.buttonCreateExcavator.TabIndex = 6;
             this.buttonCreateExcavator.Text = "Создать экскаватор";
             this.buttonCreateExcavator.Click += new System.EventHandler(this.buttonCreateExcavator_Click);
@@ -56,9 +58,10 @@ namespace KatyshevaExcavator
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonUp.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonUp.BackgroundImage")));
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUp.Location = new System.Drawing.Point(762, 349);
+            this.buttonUp.Location = new System.Drawing.Point(762, 370);
+            this.buttonUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(30, 30);
+            this.buttonUp.Size = new System.Drawing.Size(30, 24);
             this.buttonUp.TabIndex = 2;
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
@@ -68,9 +71,10 @@ namespace KatyshevaExcavator
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonLeft.BackgroundImage")));
             this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonLeft.Location = new System.Drawing.Point(726, 385);
+            this.buttonLeft.Location = new System.Drawing.Point(726, 399);
+            this.buttonLeft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(30, 30);
+            this.buttonLeft.Size = new System.Drawing.Size(30, 24);
             this.buttonLeft.TabIndex = 3;
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
@@ -80,9 +84,10 @@ namespace KatyshevaExcavator
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRight.BackgroundImage")));
             this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRight.Location = new System.Drawing.Point(798, 385);
+            this.buttonRight.Location = new System.Drawing.Point(798, 399);
+            this.buttonRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(30, 30);
+            this.buttonRight.Size = new System.Drawing.Size(30, 24);
             this.buttonRight.TabIndex = 4;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
@@ -92,18 +97,20 @@ namespace KatyshevaExcavator
             this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonDown.BackgroundImage")));
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDown.Location = new System.Drawing.Point(762, 385);
+            this.buttonDown.Location = new System.Drawing.Point(762, 399);
+            this.buttonDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(30, 30);
+            this.buttonDown.Size = new System.Drawing.Size(30, 24);
             this.buttonDown.TabIndex = 5;
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonCreateTrackedVehicle
             // 
-            this.buttonCreateTrackedVehicle.Location = new System.Drawing.Point(12, 12);
+            this.buttonCreateTrackedVehicle.Location = new System.Drawing.Point(12, 10);
+            this.buttonCreateTrackedVehicle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCreateTrackedVehicle.Name = "buttonCreateTrackedVehicle";
-            this.buttonCreateTrackedVehicle.Size = new System.Drawing.Size(226, 42);
+            this.buttonCreateTrackedVehicle.Size = new System.Drawing.Size(226, 34);
             this.buttonCreateTrackedVehicle.TabIndex = 7;
             this.buttonCreateTrackedVehicle.Text = "Создать гусеничную машину";
             this.buttonCreateTrackedVehicle.UseVisualStyleBackColor = true;
@@ -111,7 +118,7 @@ namespace KatyshevaExcavator
             // 
             // FormExavator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
             this.Controls.Add(this.buttonCreateTrackedVehicle);
@@ -121,6 +128,7 @@ namespace KatyshevaExcavator
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonCreateExcavator);
             this.Controls.Add(this.pictureBoxEx);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormExavator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Экскаватор";

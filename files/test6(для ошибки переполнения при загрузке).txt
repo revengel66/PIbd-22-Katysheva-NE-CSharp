@@ -2,7 +2,10 @@ ParkingCollection
 Parking:парковка 1
 Excavator:100;100;HotPink;MediumPurple;True;True;True;True
 Excavator:100;100;Navy;DodgerBlue;True;True;True;True
-Excavator:100;100;Yellow;Black;False;False;False;False
+Excavator:100;100;HotPink;MediumPurple;True;True;True;True
+Excavator:100;100;Navy;DodgerBlue;True;True;True;True
+Excavator:100;100;HotPink;MediumPurple;True;True;True;True
+Excavator:100;100;Navy;DodgerBlue;True;True;True;True
 Parking:парковка 2
 Excavator:100;100;Crimson;Black;False;False;False;False
 Excavator:100;100;ForestGreen;MediumPurple;True;True;True;True

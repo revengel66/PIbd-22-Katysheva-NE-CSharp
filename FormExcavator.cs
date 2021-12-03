@@ -44,7 +44,7 @@ namespace KatyshevaExcavator
         {
             Random rnd = new Random();
             ex = new Excavator(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Yellow, Color.Gray, true, true, true, true);
-            ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width,pictureBoxEx.Height);
+            ex.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxEx.Width, pictureBoxEx.Height);
             Draw();
         }
         private void buttonMove_Click(object sender, EventArgs e) /// Обработка нажатия кнопок управления

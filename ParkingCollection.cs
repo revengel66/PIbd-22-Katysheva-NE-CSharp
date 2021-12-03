@@ -22,7 +22,8 @@ namespace KatyshevaExcavator
         }
         public void AddParking(string name)/// Добавление парковки
         {
-            if (!parkingStages.ContainsKey(name)) {
+            if (!parkingStages.ContainsKey(name))
+            {
                 parkingStages.Add(name, new Parking<Vehicle>(pictureWidth, pictureHeight));
             }
         }
@@ -35,7 +36,8 @@ namespace KatyshevaExcavator
         }
         public Parking<Vehicle> this[string ind] /// Доступ к парковке
         {
-            get {
+            get
+            {
                 if (parkingStages.ContainsKey(ind))
                 {
                     return parkingStages[ind];
@@ -46,7 +48,7 @@ namespace KatyshevaExcavator
         /// <summary>
         /// Сохранение информации по автомобилям на парковках в файл
         /// </summary>
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -54,7 +56,7 @@ namespace KatyshevaExcavator
             }
             using (FileStream fs = new FileStream(filename, FileMode.Create))
             {
-                using(StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
                 {
                     sw.Write($"ParkingCollection{Environment.NewLine}", fs);
                     foreach (var level in parkingStages)
@@ -83,16 +85,15 @@ namespace KatyshevaExcavator
                     }
                 }
             }
-            return true;
         }
         /// <summary>
         /// Загрузка нформации по автомобилям на парковках из файла
         /// </summary>
-        public bool LoadData(string filename)
+        public void LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             using (StreamReader sr = new StreamReader(filename, Encoding.UTF8))
             {
@@ -105,7 +106,7 @@ namespace KatyshevaExcavator
                 else
                 {
                     //если нет такой записи, то это не те данные
-                    return false;
+                    throw new FileFormatException("Неверный формат файла");
                 }
                 Vehicle car = null;
                 string key = string.Empty;
@@ -133,12 +134,11 @@ namespace KatyshevaExcavator
                         car = new Excavator(str.Split(separator)[1]);
                     }
                     var result = parkingStages[key] + car;
-                    if (result == -1)
+                    if (result==-1)
                     {
-                        return false;
+                          throw new TypeLoadException("Не удалось загрузить транспорт на стоянку");
                     }
                 }
-                return true;
             }
         }
     }

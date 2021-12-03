@@ -75,9 +75,11 @@ namespace KatyshevaExcavator
             this.groupBoxOptions.Controls.Add(this.numericUpDownSpeed);
             this.groupBoxOptions.Controls.Add(this.labelWeight);
             this.groupBoxOptions.Controls.Add(this.labelMaxSpeed);
-            this.groupBoxOptions.Location = new System.Drawing.Point(19, 170);
+            this.groupBoxOptions.Location = new System.Drawing.Point(19, 181);
+            this.groupBoxOptions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxOptions.Name = "groupBoxOptions";
-            this.groupBoxOptions.Size = new System.Drawing.Size(175, 301);
+            this.groupBoxOptions.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxOptions.Size = new System.Drawing.Size(175, 247);
             this.groupBoxOptions.TabIndex = 0;
             this.groupBoxOptions.TabStop = false;
             this.groupBoxOptions.Text = "Параметры:";
@@ -85,9 +87,10 @@ namespace KatyshevaExcavator
             // checkBoxСounterweight
             // 
             this.checkBoxСounterweight.AutoSize = true;
-            this.checkBoxСounterweight.Location = new System.Drawing.Point(6, 218);
+            this.checkBoxСounterweight.Location = new System.Drawing.Point(6, 196);
+            this.checkBoxСounterweight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxСounterweight.Name = "checkBoxСounterweight";
-            this.checkBoxСounterweight.Size = new System.Drawing.Size(115, 24);
+            this.checkBoxСounterweight.Size = new System.Drawing.Size(108, 21);
             this.checkBoxСounterweight.TabIndex = 7;
             this.checkBoxСounterweight.Text = "Противовес";
             this.checkBoxСounterweight.UseVisualStyleBackColor = true;
@@ -95,9 +98,10 @@ namespace KatyshevaExcavator
             // checkBoxHandle
             // 
             this.checkBoxHandle.AutoSize = true;
-            this.checkBoxHandle.Location = new System.Drawing.Point(6, 158);
+            this.checkBoxHandle.Location = new System.Drawing.Point(6, 146);
+            this.checkBoxHandle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxHandle.Name = "checkBoxHandle";
-            this.checkBoxHandle.Size = new System.Drawing.Size(84, 24);
+            this.checkBoxHandle.Size = new System.Drawing.Size(83, 21);
             this.checkBoxHandle.TabIndex = 5;
             this.checkBoxHandle.Text = "Рукоять";
             this.checkBoxHandle.UseVisualStyleBackColor = true;
@@ -105,9 +109,10 @@ namespace KatyshevaExcavator
             // checkBoxBucket
             // 
             this.checkBoxBucket.AutoSize = true;
-            this.checkBoxBucket.Location = new System.Drawing.Point(6, 131);
+            this.checkBoxBucket.Location = new System.Drawing.Point(6, 121);
+            this.checkBoxBucket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxBucket.Name = "checkBoxBucket";
-            this.checkBoxBucket.Size = new System.Drawing.Size(69, 24);
+            this.checkBoxBucket.Size = new System.Drawing.Size(65, 21);
             this.checkBoxBucket.TabIndex = 4;
             this.checkBoxBucket.Text = "Ковш";
             this.checkBoxBucket.UseVisualStyleBackColor = true;
@@ -115,16 +120,18 @@ namespace KatyshevaExcavator
             // checkBoxArrow
             // 
             this.checkBoxArrow.AutoSize = true;
-            this.checkBoxArrow.Location = new System.Drawing.Point(6, 188);
+            this.checkBoxArrow.Location = new System.Drawing.Point(6, 171);
+            this.checkBoxArrow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxArrow.Name = "checkBoxArrow";
-            this.checkBoxArrow.Size = new System.Drawing.Size(79, 24);
+            this.checkBoxArrow.Size = new System.Drawing.Size(78, 21);
             this.checkBoxArrow.TabIndex = 6;
             this.checkBoxArrow.Text = "Стрела";
             this.checkBoxArrow.UseVisualStyleBackColor = true;
             // 
             // numericUpDownWeight
             // 
-            this.numericUpDownWeight.Location = new System.Drawing.Point(83, 90);
+            this.numericUpDownWeight.Location = new System.Drawing.Point(83, 71);
+            this.numericUpDownWeight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -136,7 +143,7 @@ namespace KatyshevaExcavator
             0,
             0});
             this.numericUpDownWeight.Name = "numericUpDownWeight";
-            this.numericUpDownWeight.Size = new System.Drawing.Size(77, 27);
+            this.numericUpDownWeight.Size = new System.Drawing.Size(77, 22);
             this.numericUpDownWeight.TabIndex = 3;
             this.numericUpDownWeight.Value = new decimal(new int[] {
             100,
@@ -146,7 +153,8 @@ namespace KatyshevaExcavator
             // 
             // numericUpDownSpeed
             // 
-            this.numericUpDownSpeed.Location = new System.Drawing.Point(83, 46);
+            this.numericUpDownSpeed.Location = new System.Drawing.Point(83, 37);
+            this.numericUpDownSpeed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numericUpDownSpeed.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -158,7 +166,7 @@ namespace KatyshevaExcavator
             0,
             0});
             this.numericUpDownSpeed.Name = "numericUpDownSpeed";
-            this.numericUpDownSpeed.Size = new System.Drawing.Size(77, 27);
+            this.numericUpDownSpeed.Size = new System.Drawing.Size(77, 22);
             this.numericUpDownSpeed.TabIndex = 2;
             this.numericUpDownSpeed.Value = new decimal(new int[] {
             100,
@@ -168,26 +176,27 @@ namespace KatyshevaExcavator
             // 
             // labelWeight
             // 
-            this.labelWeight.Location = new System.Drawing.Point(6, 78);
+            this.labelWeight.Location = new System.Drawing.Point(6, 69);
             this.labelWeight.Name = "labelWeight";
-            this.labelWeight.Size = new System.Drawing.Size(83, 50);
+            this.labelWeight.Size = new System.Drawing.Size(83, 40);
             this.labelWeight.TabIndex = 1;
             this.labelWeight.Text = "Вес машины:";
             // 
             // labelMaxSpeed
             // 
-            this.labelMaxSpeed.Location = new System.Drawing.Point(6, 33);
+            this.labelMaxSpeed.Location = new System.Drawing.Point(6, 26);
             this.labelMaxSpeed.Name = "labelMaxSpeed";
-            this.labelMaxSpeed.Size = new System.Drawing.Size(100, 54);
+            this.labelMaxSpeed.Size = new System.Drawing.Size(100, 43);
             this.labelMaxSpeed.TabIndex = 0;
             this.labelMaxSpeed.Text = "Макс. скорость:";
             // 
             // pictureBoxPreview
             // 
             this.pictureBoxPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPreview.Location = new System.Drawing.Point(16, 16);
+            this.pictureBoxPreview.Location = new System.Drawing.Point(16, 13);
+            this.pictureBoxPreview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxPreview.Name = "pictureBoxPreview";
-            this.pictureBoxPreview.Size = new System.Drawing.Size(429, 289);
+            this.pictureBoxPreview.Size = new System.Drawing.Size(514, 365);
             this.pictureBoxPreview.TabIndex = 1;
             this.pictureBoxPreview.TabStop = false;
             // 
@@ -195,9 +204,11 @@ namespace KatyshevaExcavator
             // 
             this.groupBoxType.Controls.Add(this.labelExcavator);
             this.groupBoxType.Controls.Add(this.labelTrackVeh);
-            this.groupBoxType.Location = new System.Drawing.Point(19, 12);
+            this.groupBoxType.Location = new System.Drawing.Point(19, 10);
+            this.groupBoxType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxType.Name = "groupBoxType";
-            this.groupBoxType.Size = new System.Drawing.Size(175, 152);
+            this.groupBoxType.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxType.Size = new System.Drawing.Size(175, 137);
             this.groupBoxType.TabIndex = 2;
             this.groupBoxType.TabStop = false;
             this.groupBoxType.Text = "Тип машины";
@@ -206,9 +217,9 @@ namespace KatyshevaExcavator
             // 
             this.labelExcavator.AllowDrop = true;
             this.labelExcavator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelExcavator.Location = new System.Drawing.Point(20, 97);
+            this.labelExcavator.Location = new System.Drawing.Point(20, 78);
             this.labelExcavator.Name = "labelExcavator";
-            this.labelExcavator.Size = new System.Drawing.Size(140, 27);
+            this.labelExcavator.Size = new System.Drawing.Size(140, 26);
             this.labelExcavator.TabIndex = 1;
             this.labelExcavator.Text = "Экскаватор";
             this.labelExcavator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -218,9 +229,9 @@ namespace KatyshevaExcavator
             // 
             this.labelTrackVeh.AllowDrop = true;
             this.labelTrackVeh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelTrackVeh.Location = new System.Drawing.Point(20, 36);
+            this.labelTrackVeh.Location = new System.Drawing.Point(20, 29);
             this.labelTrackVeh.Name = "labelTrackVeh";
-            this.labelTrackVeh.Size = new System.Drawing.Size(140, 47);
+            this.labelTrackVeh.Size = new System.Drawing.Size(140, 38);
             this.labelTrackVeh.TabIndex = 0;
             this.labelTrackVeh.Text = "Гусеничная машина";
             this.labelTrackVeh.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -231,9 +242,10 @@ namespace KatyshevaExcavator
             this.panelPreview.AllowDrop = true;
             this.panelPreview.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPreview.Controls.Add(this.pictureBoxPreview);
-            this.panelPreview.Location = new System.Drawing.Point(215, 6);
+            this.panelPreview.Location = new System.Drawing.Point(215, 5);
+            this.panelPreview.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPreview.Name = "panelPreview";
-            this.panelPreview.Size = new System.Drawing.Size(456, 319);
+            this.panelPreview.Size = new System.Drawing.Size(547, 391);
             this.panelPreview.TabIndex = 3;
             this.panelPreview.DragDrop += new System.Windows.Forms.DragEventHandler(this.panelPreview_DragDrop);
             this.panelPreview.DragEnter += new System.Windows.Forms.DragEventHandler(this.panelPreview_DragEnter);
@@ -250,9 +262,11 @@ namespace KatyshevaExcavator
             this.groupBoxColor.Controls.Add(this.panelBlue);
             this.groupBoxColor.Controls.Add(this.panelPurple);
             this.groupBoxColor.Controls.Add(this.panelRed);
-            this.groupBoxColor.Location = new System.Drawing.Point(215, 328);
+            this.groupBoxColor.Location = new System.Drawing.Point(215, 400);
+            this.groupBoxColor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBoxColor.Name = "groupBoxColor";
-            this.groupBoxColor.Size = new System.Drawing.Size(346, 143);
+            this.groupBoxColor.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBoxColor.Size = new System.Drawing.Size(346, 114);
             this.groupBoxColor.TabIndex = 4;
             this.groupBoxColor.TabStop = false;
             this.groupBoxColor.Text = "Цвета";
@@ -261,9 +275,9 @@ namespace KatyshevaExcavator
             // 
             this.labelDopColor.AllowDrop = true;
             this.labelDopColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelDopColor.Location = new System.Drawing.Point(241, 84);
+            this.labelDopColor.Location = new System.Drawing.Point(241, 67);
             this.labelDopColor.Name = "labelDopColor";
-            this.labelDopColor.Size = new System.Drawing.Size(89, 50);
+            this.labelDopColor.Size = new System.Drawing.Size(89, 40);
             this.labelDopColor.TabIndex = 9;
             this.labelDopColor.Text = "Доп. цвет";
             this.labelDopColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -274,9 +288,9 @@ namespace KatyshevaExcavator
             // 
             this.labelMainColor.AllowDrop = true;
             this.labelMainColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelMainColor.Location = new System.Drawing.Point(240, 24);
+            this.labelMainColor.Location = new System.Drawing.Point(240, 19);
             this.labelMainColor.Name = "labelMainColor";
-            this.labelMainColor.Size = new System.Drawing.Size(90, 52);
+            this.labelMainColor.Size = new System.Drawing.Size(90, 42);
             this.labelMainColor.TabIndex = 8;
             this.labelMainColor.Text = "Основной цвет";
             this.labelMainColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,73 +300,82 @@ namespace KatyshevaExcavator
             // panelGreen
             // 
             this.panelGreen.BackColor = System.Drawing.Color.Lime;
-            this.panelGreen.Location = new System.Drawing.Point(185, 84);
+            this.panelGreen.Location = new System.Drawing.Point(185, 67);
+            this.panelGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelGreen.Name = "panelGreen";
-            this.panelGreen.Size = new System.Drawing.Size(50, 50);
+            this.panelGreen.Size = new System.Drawing.Size(50, 40);
             this.panelGreen.TabIndex = 7;
             // 
             // panelDarkGreen
             // 
             this.panelDarkGreen.BackColor = System.Drawing.Color.ForestGreen;
-            this.panelDarkGreen.Location = new System.Drawing.Point(184, 26);
+            this.panelDarkGreen.Location = new System.Drawing.Point(184, 21);
+            this.panelDarkGreen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDarkGreen.Name = "panelDarkGreen";
-            this.panelDarkGreen.Size = new System.Drawing.Size(50, 50);
+            this.panelDarkGreen.Size = new System.Drawing.Size(50, 40);
             this.panelDarkGreen.TabIndex = 6;
             // 
             // panelYellow
             // 
             this.panelYellow.BackColor = System.Drawing.Color.Yellow;
-            this.panelYellow.Location = new System.Drawing.Point(17, 84);
+            this.panelYellow.Location = new System.Drawing.Point(17, 67);
+            this.panelYellow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelYellow.Name = "panelYellow";
-            this.panelYellow.Size = new System.Drawing.Size(50, 50);
+            this.panelYellow.Size = new System.Drawing.Size(50, 40);
             this.panelYellow.TabIndex = 5;
             // 
             // panelDarkBlue
             // 
             this.panelDarkBlue.BackColor = System.Drawing.Color.Navy;
-            this.panelDarkBlue.Location = new System.Drawing.Point(129, 26);
+            this.panelDarkBlue.Location = new System.Drawing.Point(129, 21);
+            this.panelDarkBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelDarkBlue.Name = "panelDarkBlue";
-            this.panelDarkBlue.Size = new System.Drawing.Size(50, 50);
+            this.panelDarkBlue.Size = new System.Drawing.Size(50, 40);
             this.panelDarkBlue.TabIndex = 4;
             // 
             // panelPink
             // 
             this.panelPink.BackColor = System.Drawing.Color.HotPink;
-            this.panelPink.Location = new System.Drawing.Point(73, 84);
+            this.panelPink.Location = new System.Drawing.Point(73, 67);
+            this.panelPink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPink.Name = "panelPink";
-            this.panelPink.Size = new System.Drawing.Size(50, 50);
+            this.panelPink.Size = new System.Drawing.Size(50, 40);
             this.panelPink.TabIndex = 2;
             // 
             // panelBlue
             // 
             this.panelBlue.BackColor = System.Drawing.Color.DodgerBlue;
-            this.panelBlue.Location = new System.Drawing.Point(129, 84);
+            this.panelBlue.Location = new System.Drawing.Point(129, 67);
+            this.panelBlue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelBlue.Name = "panelBlue";
-            this.panelBlue.Size = new System.Drawing.Size(50, 50);
+            this.panelBlue.Size = new System.Drawing.Size(50, 40);
             this.panelBlue.TabIndex = 3;
             // 
             // panelPurple
             // 
             this.panelPurple.BackColor = System.Drawing.Color.MediumPurple;
-            this.panelPurple.Location = new System.Drawing.Point(73, 26);
+            this.panelPurple.Location = new System.Drawing.Point(73, 21);
+            this.panelPurple.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPurple.Name = "panelPurple";
-            this.panelPurple.Size = new System.Drawing.Size(50, 50);
+            this.panelPurple.Size = new System.Drawing.Size(50, 40);
             this.panelPurple.TabIndex = 1;
             // 
             // panelRed
             // 
             this.panelRed.BackColor = System.Drawing.Color.Crimson;
             this.panelRed.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelRed.Location = new System.Drawing.Point(17, 26);
+            this.panelRed.Location = new System.Drawing.Point(17, 21);
+            this.panelRed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelRed.Name = "panelRed";
-            this.panelRed.Size = new System.Drawing.Size(50, 50);
+            this.panelRed.Size = new System.Drawing.Size(50, 40);
             this.panelRed.TabIndex = 0;
             // 
             // buttonOk
             // 
-            this.buttonOk.Location = new System.Drawing.Point(567, 383);
+            this.buttonOk.Location = new System.Drawing.Point(567, 410);
+            this.buttonOk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOk.Name = "buttonOk";
-            this.buttonOk.Size = new System.Drawing.Size(94, 29);
+            this.buttonOk.Size = new System.Drawing.Size(94, 33);
             this.buttonOk.TabIndex = 5;
             this.buttonOk.Text = "Добавить";
             this.buttonOk.UseVisualStyleBackColor = true;
@@ -360,24 +383,26 @@ namespace KatyshevaExcavator
             // 
             // buttonСancel
             // 
-            this.buttonСancel.Location = new System.Drawing.Point(567, 433);
+            this.buttonСancel.Location = new System.Drawing.Point(567, 471);
+            this.buttonСancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonСancel.Name = "buttonСancel";
-            this.buttonСancel.Size = new System.Drawing.Size(94, 29);
+            this.buttonСancel.Size = new System.Drawing.Size(94, 32);
             this.buttonСancel.TabIndex = 6;
             this.buttonСancel.Text = "Отмена";
             this.buttonСancel.UseVisualStyleBackColor = true;
             // 
             // FormTrackVehConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 487);
+            this.ClientSize = new System.Drawing.Size(790, 570);
             this.Controls.Add(this.buttonСancel);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.groupBoxColor);
             this.Controls.Add(this.panelPreview);
             this.Controls.Add(this.groupBoxType);
             this.Controls.Add(this.groupBoxOptions);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormTrackVehConfig";
             this.Text = "Выбор машины";
             this.groupBoxOptions.ResumeLayout(false);

@@ -5,9 +5,10 @@ using System.Drawing;
 
 namespace KatyshevaExcavator
 {
-    class Excavator : TrackedVehicle { 
+    class Excavator : TrackedVehicle
+    {
         public Color DopColor { private set; get; } /// Дополнительный цвет
-        public bool Bucket { private set; get;} /// Признак наличия ковша
+        public bool Bucket { private set; get; } /// Признак наличия ковша
         public bool Handle { private set; get; } /// Признак наличия рукояти
         public bool Arrow { private set; get; } /// Признак наличия стрелы  
         public bool Сounterweight { private set; get; }/// Признак наличия противовеса
@@ -43,7 +44,7 @@ namespace KatyshevaExcavator
             Brush mainColor = new SolidBrush(MainColor);
             Brush dopColor = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Black);
-            
+
             if (Handle)
             { //Рукоять
                 PointF[] handle = {
