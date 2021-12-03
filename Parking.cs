@@ -22,24 +22,28 @@ namespace KatyshevaExcavator
             pictureWidth = picWidth;
             pictureHeight = picHeight;
         }
+        /// <summary>
         /// Перегрузка оператора сложения
         /// Логика действия: на парковку добавляется машина
+        /// </summary>
         public static int operator +(Parking<T> p, T car)
         {
             if (p._places.Count == p._maxCount)
             {
-                return -1;
+                throw new ParkingOverflowException();
             }
             p._places.Add(car);
             return p._places.Count;
         }
+        /// <summary>
         /// Перегрузка оператора вычитания
         /// Логика действия: с парковки забираем машину
-         public static T operator -(Parking<T> p, int index)
-         {
+        /// </summary>
+        public static T operator -(Parking<T> p, int index)
+        {
             if (index < 0 || index >= p._places.Count)
             {
-                return null;
+                throw new ParkingNotFoundException(index);
             }
             var car = p._places[index];
             p._places.RemoveAt(index);
@@ -68,13 +72,13 @@ namespace KatyshevaExcavator
             {
                 for (int j = 0; j < pictureHeight / _placeSizeHeight + 1; ++j)
                 {//линия разметки места
-                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i *_placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
+                    g.DrawLine(pen, i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + _placeSizeWidth / 2, j * _placeSizeHeight);
                 }
-                g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth,(pictureHeight / _placeSizeHeight) * _placeSizeHeight);
+                g.DrawLine(pen, i * _placeSizeWidth, 0, i * _placeSizeWidth, (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
         /// <summary>
-        /// Функция получения элементы из списка
+        /// Функция получения элемента из списка
         /// </summary>
         public T GetNext(int index)
         {
@@ -84,5 +88,5 @@ namespace KatyshevaExcavator
             }
             return _places[index];
         }
-    } 
+    }
 }

@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NLog;
 
 namespace KatyshevaExcavator
 {
     public partial class FormParking : Form
     {
         private readonly ParkingCollection parkingCollection; /// Объект от класса-коллекции парковок
+        /// <summary>
+        /// Логгер
+        /// </summary>
+        private readonly Logger logger;
         public FormParking()
         {
             InitializeComponent();
             parkingCollection = new ParkingCollection(pictureBoxParking.Width, pictureBoxParking.Height);
+            logger = LogManager.GetCurrentClassLogger();
         }
         private void ReloadLevels() /// Заполнение listBoxLevels
         {
@@ -56,6 +63,7 @@ namespace KatyshevaExcavator
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            logger.Info($"Добавили парковку {textBoxNewLevelName.Text}");
             parkingCollection.AddParking(textBoxNewLevelName.Text);
             ReloadLevels();
         }
@@ -63,47 +71,11 @@ namespace KatyshevaExcavator
         {
             if (listBoxParkings.SelectedIndex > -1)
             {
-                if (MessageBox.Show($"Удалить парковку {listBoxParkings.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo,  MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Удалить парковку {listBoxParkings.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
+                    logger.Info($"Удалили парковку { listBoxParkings.SelectedItem.ToString()}");
                     parkingCollection.DelParking(listBoxParkings.SelectedItem.ToString());
                     ReloadLevels();
-                }
-            }
-        }
-        private void ParkTracVehButton_Click(object sender, EventArgs e)/// Обработка нажатия кнопки "Припарковать гусеничную машину"
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                var tv = new TrackedVehicle(100, 1000, dialog.Color);
-                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + tv != -1)
-                {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Парковка переполнена");
-                }
-            }
-        }
-        /// Обработка нажатия кнопки "Припарковать экскаватор"
-        private void ParkExButton_Click(object sender, EventArgs e)
-        {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
-                {
-                    var ex = new Excavator(100, 1000, dialog.Color, dialogDop.Color, true, true, true, true);
-                    if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + ex != -1)
-                    {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Парковка переполнена");
-                    }
                 }
             }
         }
@@ -112,19 +84,34 @@ namespace KatyshevaExcavator
         {
             if (listBoxParkings.SelectedIndex > -1 && maskedTextBoxPark.Text != "")
             {
-                var car = parkingCollection[listBoxParkings.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxPark.Text);
-                if (car != null)
+                try
                 {
-                    FormExavator form = new FormExavator();
-                    form.SetVehicle(car);
-                    form.ShowDialog();
+                    var car = parkingCollection[listBoxParkings.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxPark.Text);
+                    if (car != null)
+                    {
+                        FormExavator form = new FormExavator();
+                        form.SetVehicle(car);
+                        form.ShowDialog();
+                        logger.Info($"Изъят автомобиль {car} с места { maskedTextBoxPark.Text}");
+                    }
+                    Draw();
                 }
-                Draw();
+                catch (ParkingNotFoundException ex)
+                {
+                    logger.Warn("Ошибка при удалении транспорта. Не найдено");
+                    MessageBox.Show(ex.Message, "Не найдено", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn("Неизвестная ошибка при удалении транспорта с парковки");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         /// Метод обработки выбора элемента на listBoxLevels
         private void listBoxParkings_SelectedIndexChanged(object sender, EventArgs e)
         {
+            logger.Info($"Перешли на парковку { listBoxParkings.SelectedItem.ToString()}");
             Draw();
         }
         /// <summary>
@@ -143,29 +130,47 @@ namespace KatyshevaExcavator
         {
             if (car != null && listBoxParkings.SelectedIndex > -1)
             {
-                if (parkingCollection[listBoxParkings.SelectedItem.ToString()] + car != -11)
+                try
                 {
+                    if ((parkingCollection[listBoxParkings.SelectedItem.ToString()]) + car != -1)
+                    {
+                        Draw();
+                        logger.Info($"Добавлен автомобиль {car}");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Транспорт не удалось поставить");
+                    }
                     Draw();
                 }
-                else
+                catch (ParkingOverflowException ex)
                 {
-                    MessageBox.Show("Парковка переполнена");
+                    logger.Warn("Ошибка при добавлении транспорта. Переполнение");
+                    MessageBox.Show(ex.Message, "Переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                catch (Exception ex)
+                {
+                    logger.Warn("Неизвестная ошибка при добавлении транспорта");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialogTransport.ShowDialog() == DialogResult.OK)
             {
-                if (parkingCollection.SaveData(saveFileDialogTransport.FileName))
+
+                try
                 {
-                   MessageBox.Show("Сохранение прошло успешно", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    parkingCollection.SaveData(saveFileDialogTransport.FileName);
+                    MessageBox.Show("Сохранение прошло успешно", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Сохранено в файл " + saveFileDialogTransport.FileName);
                 }
-                else
+                catch (Exception ex)
                 {
-                   MessageBox.Show("Не сохранилось", "Результат",
-                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    logger.Warn("Неизвестная ошибка при сохранении");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при сохранении", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -174,17 +179,33 @@ namespace KatyshevaExcavator
         {
             if (openFileDialogTransport.ShowDialog() == DialogResult.OK)
             {
-                if (parkingCollection.LoadData(openFileDialogTransport.FileName))
+                try
                 {
-                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    parkingCollection.LoadData(openFileDialogTransport.FileName);
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    logger.Info("Загружено из файла " + openFileDialogTransport.FileName);
                     ReloadLevels();
                     Draw();
                 }
-                else
+                catch (FileNotFoundException ex)
                 {
-                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                    logger.Warn("Ошибка при загрузке несуществующуго файла");
+                    MessageBox.Show(ex.Message, "Такого файла не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (FileFormatException ex)
+                {
+                    logger.Warn("Ошибка при загрузке файла неверного формата");
+                    MessageBox.Show(ex.Message, "Файл имеет неверный формат", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (TypeLoadException ex)
+                {
+                    logger.Warn("Ошибка при загрузке объектов на стоянку. Неизвестный объект или переполнение");
+                    MessageBox.Show(ex.Message, "Неизвестный объект или переполнение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    logger.Warn("Неизвестная ошибка при загрузке");
+                    MessageBox.Show(ex.Message, "Неизвестная ошибка при загрузке", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
