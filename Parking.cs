@@ -9,7 +9,7 @@ namespace KatyshevaExcavator
     /// Параметризованный класс для хранения набора объектов от интерфейса ITransport
     public class Parking<T> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport
     {
-        public readonly List<T> _places; /// Список объектов, которые храним
+        private readonly List<T> _places; /// Список объектов, которые храним
 
         private readonly int _maxCount;/// Максимальное количество мест на парковке
         private readonly int pictureWidth;/// Ширина окна отрисовки
