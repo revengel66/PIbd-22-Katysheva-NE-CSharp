@@ -77,12 +77,14 @@
     </Compile>
     <Compile Include="ITransport.cs" />
     <Compile Include="Parking.cs" />
+    <Compile Include="ParkingAlreadyHaveException.cs" />
     <Compile Include="ParkingCollection.cs" />
     <Compile Include="ParkingNotFoundException.cs" />
     <Compile Include="ParkingOverflowException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TrackedVehicle.cs" />
+    <Compile Include="TrackedVehicleComparer.cs" />
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormExcavator.resx">
       <DependentUpon>FormExcavator.cs</DependentUpon>

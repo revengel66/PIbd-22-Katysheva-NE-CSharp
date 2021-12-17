@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace KatyshevaExcavator
 {
-    class Excavator : TrackedVehicle
+    class Excavator : TrackedVehicle, IEquatable<Excavator>
     {
         public Color DopColor { private set; get; } /// Дополнительный цвет
         public bool Bucket { private set; get; } /// Признак наличия ковша
@@ -100,5 +100,71 @@ namespace KatyshevaExcavator
         {
             return $"{base.ToString()}{separator}{DopColor.Name}{separator}{Bucket}{separator}{Handle}{separator}{Arrow}{ separator}{ Сounterweight}";
         }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        public bool Equals(Excavator other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Bucket != other.Bucket)
+            {
+                return false;
+            }
+            if (Handle != other.Handle)
+            {
+                return false;
+            }
+            if (Arrow != other.Arrow)
+            {
+                return false;
+            }
+            if (Сounterweight != other.Сounterweight)
+            {
+                return false;
+            }
+            return true;
+        }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса SportCar
+        /// </summary>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Excavator carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+
     }
 }
