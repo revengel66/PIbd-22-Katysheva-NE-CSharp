@@ -1,0 +1,5 @@
+﻿ParkingCollection
+Parking:вцййцв
+Excavator:100;100;HotPink;MediumPurple;True;True;True;True
+TrackedVehicle:100;100;Crimson
+Excavator:100;100;Crimson;Black;False;False;False;False

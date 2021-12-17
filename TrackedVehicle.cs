@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace KatyshevaExcavator
 {
-    public class TrackedVehicle : Vehicle
+    public class TrackedVehicle : Vehicle, IEquatable<TrackedVehicle>
     {
         protected readonly int trackedVehicleWidth = 210; /// Ширина отрисовки гусеничной машины
         protected readonly int trackedVehicleHeight = 250;/// Высота отрисовки гусеничной машины
@@ -99,5 +99,48 @@ namespace KatyshevaExcavator
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
+        /// <summary>
+        /// Метод интерфейса IEquatable для класса Car
+        /// </summary>
+        public bool Equals(TrackedVehicle other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is TrackedVehicle carObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(carObj);
+            }
+        }
+
     }
 }

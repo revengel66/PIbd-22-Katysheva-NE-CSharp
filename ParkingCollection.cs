@@ -63,8 +63,7 @@ namespace KatyshevaExcavator
                     {
                         //Начинаем парковку
                         sw.Write($"Parking{separator}{level.Key}{Environment.NewLine}", fs);
-                        ITransport car = null;
-                        for (int i = 0; (car = level.Value.GetNext(i)) != null; i++)
+                        foreach(ITransport car in level.Value)
                         {
                             if (car != null)
                             {

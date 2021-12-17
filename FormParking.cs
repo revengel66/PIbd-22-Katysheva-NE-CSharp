@@ -209,5 +209,15 @@ namespace KatyshevaExcavator
                 }
             }
         }
+
+        private void buttonCorting_Click(object sender, EventArgs e)
+        {
+            if (listBoxParkings.SelectedIndex > -1)
+            {
+                parkingCollection[listBoxParkings.SelectedItem.ToString()].Sort();
+                Draw();
+                logger.Info("Сортировка уровней");
+            }
+        }
     }
 }
